@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>Đầu 10 số 096-097-098-086</p>
+	<p>Đầu 11 số 0162-0163-0164-0165-0166-0167-0168-0169</p>
+	<script type="text/javascript">
+		let dau_10_so = /^0{1}9{1}[6-8]{1}[\d]{7}$|^0{1}8{1}[6]{1}[\d]{7}$/;
+		let dau_11_so = /^0{1}1{1}6{1}[2-9]{1}[\d]{7}$/;
+
+		let array = [];
+		array.push("0988406690");//viettel
+		array.push("0947162442");
+		array.push("0907722693");
+		array.push("01686593659");//viettel
+		array.push("0987625598");//viettel
+		array.push("0914439090");
+		array.push("0982323141");//viettel
+
+		display(array);
+		display2(filtering(array,dau_10_so,dau_11_so));
+
+		function filtering(array,pattern1,pattern2){
+			let str = "";
+			f(array,function(arr,index){
+				if(pattern1.test(arr[index])||pattern2.test(arr[index])){
+					str += arr[index] + " - ";
+				}
+			});
+			return str;
+		}
+
+		function display(array){
+			document.write( "Array" + "</br>");
+			f(array,function(arr, index){
+				document.write( index + "   - "+ arr[index] + "</br>");
+			});
+		}
+
+		function display2(string){
+			document.write("</br>SDT viettel: </br>" + string + "</br>");
+		}
+
+		function f(array,dosomethings){
+			let length = array.length;
+			for(let i = 0; i < length; i++){
+				dosomethings(array,i);
+			}
+		}
+
+
+	</script>
+</body>
+</html>
